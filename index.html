@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+     <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>POINT TABLE GENERATOR (BREAST ESPORTS COMMUNITY)</title>
+    <title>POINT TABLE GENERATOR (BEASTz ESPORTS)</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bangers&family=Bebas+Neue&family=Black+Han+Sans&family=Black+Ops+One&family=Bungee&family=Carter+One&family=Chakra+Petch:wght@400;600;700&family=Concert+One&family=Creepster&family=Days+One&family=Fjalla+One&family=Fredoka:wght@400;600;700&family=Fugaz+One&family=Grenze+Gotisch:wght@400;600;700&family=Hammersmith+One&family=Jura:wght@400;600;700&family=Kanit:wght@400;600;700&family=Luckiest+Guy&family=Monoton&family=Orbitron:wght@400;600;700&family=Oswald:wght@400;600;700&family=Passion+One&family=Paytone+One&family=Permanent+Marker&family=Press+Start+2P&family=Quantico:wght@400;700&family=Racing+Sans+One&family=Rajdhani:wght@500;600;700&family=Righteous&family=Rowdies:wght@400;700&family=Russo+One&family=Saira+Stencil+One&family=Shojumaru&family=Sigmar+One&family=Teko:wght@400;600;700&family=Titan+One&family=Ultra&family=Wallpoet&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bangers&family=Bebas+Neue&family=Black+Han+Sans&family=Black+Ops+One&family=Bungee&family=Carter+One&family=Chakra+Petch:wght@400;600;700&family=Concert+One&family=Creepster&family=Days+One&family=Fjalla+One&family=Fredoka:wght@400;600;700&family=Fugaz+One&family=Grenze+Gotisch:wght@400;600;700&family=Hammersmith+One&family=Jura:wght@400;600;700&family=Kanit:wght@400;600;700&family=Luckiest+Guy&family=Monoton&family=Orbitron:wght@400;600;700&family=Oswald:wght@400;600;700&family=Passion+One&family=Paytone+One&family=Permanent+Marker&family=Press+Start+2P&family=Quantico:wght@400;700&family=Racing+Sans+One&family=Rajdhani:wght@500;600;700&family=Righteous&family=Rowdies:wght@400;700&family=Russo+One&family=Saira+Stencil+One&family=Shojumaru&family=Sigmar+One&family=Teko:wght@400;600;700&family=Titan+One&family=Ultra&family=Wallpoet&family=Dancing+Script:wght@700&family=Great+Vibes&family=Sacramento&family=Allura&family=Parisienne&family=Cookie&family=Mrs+Saint+Delafield&family=Herr+Von+Muellerhoff&family=Meie+Script&family=Cedarville+Cursive&family=Zeyada&display=swap" rel="stylesheet">
 
     <style>
         /* --- 1. LAYOUT --- */
@@ -19,25 +19,7 @@
             min-height: 100vh;
         }
 
-        /* --- 2. ANIMATION --- */
-        .animate-on-scroll {
-            opacity: 0; transform: translateX(-120px) scale(0.7); 
-            transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1); 
-        }
-        .show-content { opacity: 1; transform: translateX(0) scale(1); }
-
-        details[open] .settings-grid, 
-        details[open] .footer-content {
-            animation: softPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-            transform-origin: top center;
-        }
-        
-        @keyframes softPop {
-            0% { opacity: 0; transform: scale(0.8) translateY(-20px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        /* --- 3. HEADER --- */
+        /* --- 2. HEADER --- */
         .container { max-width: 850px; margin: 0 auto; padding-bottom: 80px; }
         .header-container { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 10px 0 30px 0; }
         .header-icon { width: 40px; height: 40px; fill: #00e5ff; filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.8)); }
@@ -52,6 +34,7 @@
             background: #0f0f12; padding: 25px; border-radius: 20px; border: 1px solid #222; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 25px; position: relative; 
             overflow: visible; z-index: 1;
+            opacity: 1 !important; transform: none !important;
         }
         .panel::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, #00e5ff, transparent); }
         
@@ -61,7 +44,7 @@
             font-family: 'Russo One', sans-serif; text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
         }
 
-        /* --- 4. INPUTS --- */
+        /* --- 3. INPUTS --- */
         .input-header { 
             display: flex; font-size: 0.7rem; color: #00e5ff; 
             margin-bottom: 8px; text-align: center; 
@@ -84,23 +67,51 @@
         .input-name { flex: 1; min-width: 0; }
         .input-num { width: 50px; text-align: center; flex-shrink: 0; font-family: 'Teko', sans-serif; font-size: 18px; letter-spacing: 1px; }
 
-        /* --- 5. SLIDERS --- */
+        /* File Input */
+        .file-upload-wrapper { position: relative; width: 100%; }
+        input[type="file"] {
+            width: 100%; padding: 10px; background: #1a1a1d; border: 1px solid #333; border-radius: 8px; color: #fff; cursor: pointer;
+        }
+        input[type="file"]::-webkit-file-upload-button {
+            background: #00e5ff; color: #000; border: none; padding: 8px 16px; border-radius: 5px; font-weight: bold; cursor: pointer; margin-right: 10px; font-family: 'Rajdhani', sans-serif;
+        }
+        .remove-logo-btn {
+            position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+            background: #ff4444; color: white; border: none; border-radius: 5px;
+            width: 25px; height: 25px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-weight: bold; font-family: sans-serif; z-index: 10;
+        }
+
+        /* --- 4. SLIDERS (FIXED) --- */
         .slider-container { margin-top: 15px; position: relative; }
         .slider-label-row { display: flex; justify-content: space-between; color: #aaa; font-size: 1rem; margin-bottom: 8px; font-family: 'Teko', sans-serif; font-weight: 600; letter-spacing: 1px; }
         .slider-val { color: #00e5ff; font-family: 'Orbitron', sans-serif; }
 
-        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; height: 40px; cursor: pointer; pointer-events: none; }
+        input[type=range] { 
+            -webkit-appearance: none; width: 100%; background: transparent; height: 40px; cursor: pointer; 
+            touch-action: none; pointer-events: none; 
+        }
         input[type=range]::-webkit-slider-thumb { 
             pointer-events: auto; height: 30px; width: 30px; border-radius: 50%; 
-            background: #00e5ff; cursor: grab;
-            -webkit-appearance: none; margin-top: -12px; 
+            background: #00e5ff; cursor: grab; -webkit-appearance: none; margin-top: -12px; 
             box-shadow: 0 0 15px #00e5ff, inset 0 0 5px #000; border: 2px solid #fff;
-            transition: transform 0.1s;
+            transition: transform 0.1s; position: relative; z-index: 10;
         }
+        input[type=range]::-moz-range-thumb { pointer-events: auto; height: 30px; width: 30px; border-radius: 50%; background: #00e5ff; cursor: grab; border: 2px solid #fff; }
         input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: linear-gradient(90deg, #111, #222); border-radius: 10px; border: 1px solid #333; }
         input[type=range]:active::-webkit-slider-thumb { transform: scale(1.2); cursor: grabbing; }
 
-        /* --- 6. COLOR PICKER --- */
+        /* HUE & SAT SLIDER SPECIFIC */
+        #template_hue::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, red, #ff00ff, blue, cyan, lime, yellow, red);
+            height: 12px; border-radius: 6px; border: none;
+        }
+        #template_sat::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, #333, #00e5ff); /* Grayscale to Color */
+            height: 12px; border-radius: 6px; border: none;
+        }
+
+        /* --- 5. COLOR PICKER --- */
         .color-group { background: #1a1a1d; border-radius: 12px; padding: 15px; margin-bottom: 15px; border: 1px solid #333; transition: 0.3s ease; }
         .color-group:hover { border-color: #00e5ff; box-shadow: 0 0 15px rgba(0, 229, 255, 0.1); }
         .color-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
@@ -108,48 +119,30 @@
         .color-preview-box { width: 50px; height: 30px; border-radius: 8px; border: 2px solid #fff; cursor: pointer; position: relative; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
         
         .rgb-mixer { display: none; background: #111; padding: 15px; border-radius: 12px; border: 1px solid #333; margin-top: 10px; margin-bottom: 10px; }
-        .rgb-mixer.active { display: block; animation: softPop 0.4s ease-out; }
+        .rgb-mixer.active { display: block; }
         .rgb-row { display: flex; align-items: center; margin-bottom: 12px; }
         .rgb-label { width: 25px; font-size: 1rem; font-weight: bold; font-family: 'Teko', sans-serif; letter-spacing: 1px; }
         
-        input[type=range].rgb-slider::-webkit-slider-runnable-track { background: linear-gradient(90deg, #000, #fff); border: none; }
-        input[type=range].rgb-slider::-webkit-slider-thumb { border-color: #fff; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
+        input[type=range].rgb-slider::-webkit-slider-runnable-track { height: 12px; border-radius: 6px; border: 1px solid #555; }
+        input[type=range].rgb-slider::-webkit-slider-thumb { margin-top: -9px; border-color: #fff; box-shadow: 0 0 5px rgba(0,0,0,0.8); }
 
         .swatch-scroll { display: flex; gap: 12px; overflow-x: auto; padding: 15px 5px; align-items: center; border-top: 1px solid #333; }
-        .swatch { 
-            width: 34px; height: 34px; border-radius: 10px; border: 2px solid #333; 
-            cursor: pointer; flex-shrink: 0; transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-        }
-        .swatch.selected { 
-            transform: scale(1.25); 
-            border: 2px solid #ffffff !important; 
-            box-shadow: 0 0 10px var(--selected-color-glow), 0 0 20px var(--selected-color-glow) !important;
-            z-index: 10;
-        }
+        .swatch { width: 34px; height: 34px; border-radius: 10px; border: 2px solid #333; cursor: pointer; flex-shrink: 0; transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .swatch.selected { border: 2px solid #ffffff !important; transform: scale(1.25); box-shadow: 0 0 15px var(--selected-color-glow) !important; z-index: 10; }
 
-        /* --- 7. FONT SELECT --- */
-        .custom-select-wrapper { position: relative; user-select: none; width: 100%; z-index: 1000; }
-        .custom-select { position: relative; display: flex; flex-direction: column; }
-        .custom-select__trigger { 
-            position: relative; display: flex; align-items: center; justify-content: space-between; 
-            padding: 14px; font-weight: bold; background: #1a1a1d; color: white; 
-            border: 1px solid #333; border-radius: 12px; font-family: 'Chakra Petch', sans-serif; font-size: 1.1rem; 
-            cursor: pointer; transition: 0.2s; 
-        }
+        /* --- 6. FONT SELECT FIX --- */
+        .custom-select-wrapper { position: relative; user-select: none; width: 100%; z-index: 1000; box-sizing: border-box; }
+        .custom-select { position: relative; display: flex; flex-direction: column; width: 100%; }
+        .custom-select__trigger { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 14px; font-weight: bold; background: #1a1a1d; color: white; border: 1px solid #333; border-radius: 12px; font-family: 'Chakra Petch', sans-serif; font-size: 1.1rem; cursor: pointer; transition: 0.2s; width: 100%; box-sizing: border-box; }
         .custom-select__trigger:hover { border-color: #00e5ff; box-shadow: 0 0 10px rgba(0, 229, 255, 0.2); color: #00e5ff; }
-        .custom-select__options { 
-            position: absolute; display: block; top: 100%; left: 0; right: 0; border: 1px solid #00e5ff; 
-            border-top: none; border-radius: 0 0 12px 12px; background: #16161a; 
-            transition: all 0.3s; opacity: 0; visibility: hidden; pointer-events: none; 
-            z-index: 9999; max-height: 300px; overflow-y: auto; box-shadow: 0 10px 20px rgba(0,0,0,0.9); 
-        }
+        .custom-select__options { position: absolute; display: block; top: 100%; left: 0; right: 0; border: 1px solid #00e5ff; border-top: none; border-radius: 0 0 12px 12px; background: #16161a; transition: all 0.3s; opacity: 0; visibility: hidden; pointer-events: none; z-index: 9999; max-height: 300px; overflow-y: auto; box-shadow: 0 10px 20px rgba(0,0,0,0.9); width: 100%; box-sizing: border-box; }
         .custom-select-wrapper.open .custom-select__options { opacity: 1; visibility: visible; pointer-events: all; }
         .custom-option { padding: 12px 14px; font-size: 1rem; font-weight: 600; color: #ccc; cursor: pointer; border-bottom: 1px solid #222; }
         .custom-option:hover, .custom-option.selected { color: #00e5ff; background: #1a1a20; }
 
-        /* --- 8. BUTTONS --- */
+        /* --- 7. BUTTONS --- */
         .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .reset-btn { background: rgba(255, 68, 68, 0.1); color: #ff4444; font-size: 0.8rem; padding: 8px 16px; border: 1px solid rgba(255, 68, 68, 0.3); border-radius: 20px; text-transform: uppercase; font-weight: bold; font-family: 'Teko', sans-serif; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; }
+        .reset-btn { background: rgba(255, 68, 68, 0.1); color: #ff4444; font-size: 0.8rem; padding: 5px 12px; border: 1px solid rgba(255, 68, 68, 0.3); border-radius: 6px; text-transform: uppercase; font-weight: bold; font-family: 'Teko', sans-serif; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; }
         .reset-btn:hover { background: #ff4444; color: white; box-shadow: 0 0 15px #ff4444; }
         
         button.gen-btn, button.dl-btn, button.apply-btn, button.custom-redirect-btn { background: #1a1a1d; color: #fff; border: 1px solid #333; width: 100%; padding: 16px; cursor: pointer; border-radius: 12px; font-weight: 900; font-size: 18px; margin-top: 15px; font-family: 'Chakra Petch', sans-serif; text-transform: uppercase; letter-spacing: 2px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
@@ -157,7 +150,14 @@
         .apply-btn { font-size: 14px; padding: 12px; border-radius: 8px; margin-top: 0; font-weight: 700; }
         button.custom-redirect-btn { margin-bottom: 25px; margin-top: 0; background: linear-gradient(90deg, #111, #1a1a1d); border: 1px solid #00e5ff; color: #00e5ff; }
 
-        /* --- 9. ACCORDION --- */
+        /* NAV MATCH BUTTONS */
+        .match-controls { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 15px; }
+        .match-btn { padding: 12px; border-radius: 8px; font-family: 'Black Ops One'; font-size: 0.9rem; cursor: pointer; border: 1px solid #444; color: white; text-transform: uppercase; transition: 0.2s; display:flex; align-items:center; justify-content:center; }
+        .btn-prev { background: #664400; border-color: #ffaa00; } .btn-prev:hover { background: #885500; box-shadow: 0 0 10px #ffaa00; }
+        .btn-next { background: #004d00; border-color: #00ff00; } .btn-next:hover { background: #006600; box-shadow: 0 0 10px #00ff00; }
+        .btn-reset { background: #4d0000; border-color: #ff0000; } .btn-reset:hover { background: #660000; box-shadow: 0 0 10px #ff0000; }
+
+        /* --- 8. ACCORDION --- */
         details { background: #16161a; border: 1px solid #333; border-radius: 12px; overflow: hidden; margin-top: 20px; transition: 0.3s; }
         details[open] { border-color: #00e5ff; background: #1a1a20; }
         summary { padding: 15px; cursor: pointer; font-family: 'Russo One'; letter-spacing: 1px; color: #aaa; display: flex; justify-content: space-between; align-items: center; list-style: none; }
@@ -169,7 +169,7 @@
 
         canvas { max-width: 100%; height: auto; border: 2px solid #00e5ff; border-radius: 12px; margin-top: 10px; box-shadow: 0 0 40px rgba(0, 229, 255, 0.2); }
 
-        /* --- 10. FOOTER --- */
+        /* --- 9. FOOTER --- */
         .footer-panel { margin-top: 20px; border-color: #00e5ff; z-index: 0; }
         .footer-panel summary { color: #00e5ff; justify-content: center; font-family: 'Black Ops One'; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
         .footer-content { padding: 25px; text-align: center; }
@@ -179,24 +179,52 @@
         .social-svg { width: 45px; height: 45px; fill: #fff; }
         .insta-svg { fill: #E1306C; }
         .wa-svg { fill: #25D366; }
-        
-        .btn-icon { width: 22px; height: 22px; fill: currentColor; margin-right: 10px; }
         .section-icon { width: 26px; height: 26px; fill: #00e5ff; margin-right: 10px; filter: drop-shadow(0 0 5px rgba(0,229,255,0.4)); }
+        .btn-icon { width: 22px; height: 22px; fill: currentColor; margin-right: 10px; }
+
+        /* --- 10. TEMPLATE SWITCHER STYLES --- */
+        .template-switcher { display: flex; align-items: center; justify-content: space-between; background: #111; border: 2px solid #00e5ff; border-radius: 15px; padding: 10px; margin-top: 10px; margin-bottom: 20px; }
+        .nav-btn { background: #222; border: 2px solid #444; color: white; width: 45px; height: 45px; border-radius: 50%; font-size: 20px; font-weight: bold; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; }
+        .nav-btn:hover { background: #00e5ff; color: black; border-color: #00e5ff; box-shadow: 0 0 15px #00e5ff; }
+        .template-name-display { color: #fff; font-family: 'Black Ops One'; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="header-container animate-on-scroll">
+        <div class="header-container">
             <svg class="header-icon" viewBox="0 0 24 24"><path d="M20.2 2H3.8C2.8 2 2 2.8 2 3.8V5c0 3.3 2.7 6 6 6h1.2c.6 2.3 2.3 4.2 4.6 4.9v2.1H10c-.6 0-1 .4-1 1s.4 1 1 1h4c.6 0 1-.4 1-1s-.4-1-1-1h-3.8v-2.1c2.3-.7 4-2.6 4.6-4.9H16c3.3 0 6-2.7 6-6V3.8c0-1-.8-1.8-1.8-1.8zM4 5V3.8c0-.1.1-.2.2-.2h2.6v2.9c-1.6-.1-2.8-1.3-2.8-2.7zm11 1.5c0 1.7-1.3 3-3 3s-3-1.3-3-3V3.6h6v2.9zm5-1.5c0 1.4-1.2 2.6-2.8 2.7V3.6h2.6c.1 0 .2.1.2.2V5z"/></svg>
             <h1>TOURNAMENT MAKER</h1>
         </div>
 
-        <div class="panel animate-on-scroll">
+        <div class="panel">
             <h3>TEAM DETAILS</h3>
+            
+            <div style="margin-bottom: 15px; border: 1px solid #333; padding: 15px; border-radius: 12px; background: #16161a;">
+                <div class="input-header" style="justify-content:center; font-size: 1rem; margin-bottom: 10px; color: #fff; font-family: 'Black Ops One'; letter-spacing: 1px;">ORGANIZER NAME</div>
+                <input type="text" id="organizer_name" value="BEASTz ESPORTS" placeholder="ORGANIZER NAME" style="width:100%; text-align:center; font-size:18px; padding: 10px; border: 2px solid #00e5ff; background: #0f0f12; color: #fff; font-family: 'Rajdhani'; font-weight:bold;">
+            </div>
+
             <div style="margin-bottom: 25px; border: 1px solid #333; padding: 15px; border-radius: 12px; background: #16161a;">
                 <div class="input-header" style="justify-content:center; font-size: 1rem; margin-bottom: 15px; color: #fff; font-family: 'Black Ops One'; letter-spacing: 1px;">TOURNAMENT DATE</div>
                 <input type="text" id="tournament_date" placeholder="DATE" style="width:100%; text-align:center; font-size:20px; padding: 15px; border: 2px solid #00e5ff; background: #0f0f12; color: #00e5ff; font-family: 'Black Ops One';">
+            </div>
+
+            <div style="margin-bottom: 25px; border: 1px solid #333; padding: 15px; border-radius: 12px; background: #16161a;">
+                <div class="input-header" style="justify-content:center; font-size: 1rem; margin-bottom: 15px; color: #fff; font-family: 'Black Ops One'; letter-spacing: 1px;">UPLOAD LOGO</div>
+                <div class="file-upload-wrapper">
+                    <input type="file" id="logo_upload" accept="image/*">
+                    <button class="remove-logo-btn" onclick="removeLogo()" title="Remove Logo">X</button>
+                </div>
+            </div>
+
+            <div class="match-controls">
+                <button class="match-btn btn-prev" onclick="prevMatch()">❮ PREV MATCH</button>
+                <button class="match-btn btn-next" onclick="nextMatch()">NEXT MATCH ❯</button>
+                <button class="match-btn btn-reset" onclick="resetTournamentData()">RESET ALL</button>
+            </div>
+            <div style="text-align: center; color: #00ff00; font-family: 'Teko'; margin-bottom: 10px; font-size: 1.2rem;">
+                EDITING MATCH: <span id="matchCounter">1</span>
             </div>
 
             <div class="input-header">
@@ -206,18 +234,24 @@
                 <span class="col-num">PTS</span>
             </div>
             <div id="teamInputs"></div>
-            <button class="gen-btn" onclick="checkFontAndDraw()">
+            <button class="gen-btn" onclick="saveAndRefresh()">
                 <svg class="btn-icon" viewBox="0 0 24 24"><path d="M7 21h2v-2h-2v2zm0-8h2v-2h-2v2zm4 8h2v-2h-2v2zm0-8h2v-2h-2v2zm4 8h2v-2h-2v2zm0-8h2v-2h-2v2zM7 9h10V7H7v2zm0-4h10V3H7v2z"/></svg>
                 UPDATE PREVIEW
             </button>
         </div>
 
-        <button class="custom-redirect-btn animate-on-scroll" onclick="scrollToFooter()">
+        <button class="custom-redirect-btn" onclick="scrollToFooter()">
             <svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
             CUSTOM TEMPLATE
         </button>
 
-        <div class="panel animate-on-scroll" id="rightSide">
+        <div class="panel" id="rightSide">
+            <div class="template-switcher">
+                <button class="nav-btn" onclick="changeTemplate(-1)">❮</button>
+                <div id="templateNameDisplay" class="template-name-display">TEMPLATE 1</div>
+                <button class="nav-btn" onclick="changeTemplate(1)">❯</button>
+            </div>
+
             <h3>LIVE PREVIEW</h3>
             <canvas id="canvas"></canvas>
             <button class="dl-btn" onclick="downloadImage()">
@@ -225,29 +259,101 @@
                 DOWNLOAD
             </button>
 
-            <div style="margin-top: 30px;">
-                <div class="section-header">
-                    <h4 style="color:#fff; margin:0; font-size:1.4rem; font-family:'Black Ops One'; letter-spacing:1px; display:flex; align-items:center;">
+            <details style="margin-top: 30px;">
+                <summary>
+                    <span style="display:flex; align-items:center;">
+                        <svg class="section-icon" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.55.45-1 1-1 .55 0 1 .45 1 1 .28.28.59.54.91.76.24.16.51.24.78.24 1.83 0 3.32-1.49 3.32-3.32 0-3.32-3.32-6-3.32-9.32-.83-.83-2.04-1.34-3.32-1.34z"/></svg>
+                        TEMPLATE COLOR (HUE/SAT)
+                    </span>
+                    <button class="reset-btn" onclick="resetSpecificSection('hue')">RESET</button>
+                </summary>
+                <div class="settings-grid">
+                    <div style="grid-column: 1/-1;">
+                        <div class="slider-label-row"><span>Color Shift (Hue)</span><span class="slider-val" id="hue_val">0</span></div>
+                        <input type="range" id="template_hue" min="0" max="360" value="0" oninput="saveAndRefresh()">
+                    </div>
+                    <div style="grid-column: 1/-1;">
+                        <div class="slider-label-row"><span>Saturation (0 = B&W)</span><span class="slider-val" id="sat_val">100%</span></div>
+                        <input type="range" id="template_sat" min="0" max="200" value="100" oninput="saveAndRefresh()">
+                    </div>
+                </div>
+            </details>
+
+            <details style="margin-top: 30px;">
+                <summary>
+                    <span style="display:flex; align-items:center;">
                         <svg class="section-icon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
                         COLOR PALETTE
-                    </h4>
-                </div>
-                <div id="colorContainer"></div>
-            </div>
+                    </span>
+                    <button class="reset-btn" onclick="resetSpecificSection('colors')">RESET</button>
+                </summary>
+                <div id="colorContainer" style="padding: 15px;"></div>
+            </details>
 
-            <div style="margin-top: 30px; border-top: 1px solid #222; padding-top: 20px;">
-                <div class="section-header">
-                    <h4 style="color:#fff; margin:0; font-size:1.4rem; font-family:'Black Ops One'; letter-spacing:1px; display:flex; align-items:center;">
-                        <svg class="section-icon" viewBox="0 0 24 24"><path d="M9 4v3h5v12h3V7h5V4H9zm-6 8h3v7h3v-7h3V9H3v3z"/></svg>
-                        TABLE FONT
-                    </h4>
-                    <button class="reset-btn" onclick="resetTypography()">
-                        <svg style="width:14px; height:14px; fill:currentColor; margin-right:4px;" viewBox="0 0 24 24"><path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/></svg>
-                        RESET
-                    </button>
+            <details style="margin-top: 30px;">
+                <summary>
+                    <span style="display:flex; align-items:center;">
+                        <svg class="section-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        LOGO & ORGANIZER
+                    </span>
+                    <button class="reset-btn" onclick="resetSpecificSection('logo_org')">RESET</button>
+                </summary>
+                
+                <div class="section-header" style="margin: 20px 15px 5px 15px; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                    <h4 style="color:#00e5ff; margin:0; font-family:'Black Ops One';">ORGANIZER NAME</h4>
                 </div>
                 
-                <div class="custom-select-wrapper" id="mainFontWrapper">
+                <div class="custom-select-wrapper" id="orgFontWrapper" style="margin: 15px; width: auto;">
+                    <div class="custom-select">
+                        <div class="custom-select__trigger">
+                            <span id="orgSelectedFontText">BEASTz ESPORTS COMMUNITY 1</span>
+                            <div class="arrow"></div>
+                        </div>
+                        <div class="custom-select__options" id="orgFontOptionsList"></div>
+                    </div>
+                </div>
+                <select id="org_font_family" style="display:none;"></select>
+
+                <div class="settings-grid">
+                    <div><label>Position X</label> <input type="number" id="org_x" oninput="saveAndRefresh()"></div>
+                    <div><label>Position Y</label> <input type="number" id="org_y" oninput="saveAndRefresh()"></div>
+                    <div>
+                        <div class="slider-label-row"><span>Size</span><span class="slider-val" id="org_size_val">40</span></div>
+                        <input type="range" id="org_size" min="10" max="200" oninput="saveAndRefresh()">
+                    </div>
+                    <div>
+                        <div class="slider-label-row"><span>Boldness</span><span class="slider-val" id="org_weight_val">700</span></div>
+                        <input type="range" id="org_weight" min="100" max="900" step="100" oninput="saveAndRefresh()">
+                    </div>
+                    <div style="grid-column: 1/-1;">
+                        <div class="slider-label-row"><span>Height (Vertical)</span><span class="slider-val" id="org_v_stretch_val">1.0</span></div>
+                        <input type="range" id="org_v_stretch" min="0.5" max="2.0" step="0.05" value="1" oninput="saveAndRefresh()">
+                    </div>
+                </div>
+
+                <div class="section-header" style="margin: 20px 15px 5px 15px; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                    <h4 style="color:#00e5ff; margin:0; font-family:'Black Ops One';">LOGO</h4>
+                </div>
+                <div class="settings-grid">
+                    <div><label>Position X</label> <input type="number" id="logo_x" oninput="saveAndRefresh()"></div>
+                    <div><label>Position Y</label> <input type="number" id="logo_y" oninput="saveAndRefresh()"></div>
+                    <div>
+                        <div class="slider-label-row"><span>Size</span><span class="slider-val" id="logo_size_val">150</span></div>
+                        <input type="range" id="logo_size" min="10" max="500" oninput="saveAndRefresh()">
+                    </div>
+                </div>
+            </details>
+
+            <details style="margin-top: 30px;">
+                <summary>
+                    <span style="display:flex; align-items:center;">
+                        <svg class="section-icon" viewBox="0 0 24 24"><path d="M9 4v3h5v12h3V7h5V4H9zm-6 8h3v7h3v-7h3V9H3v3z"/></svg>
+                        TABLE FONT
+                    </span>
+                    <button class="reset-btn" onclick="resetSpecificSection('table_font')">RESET</button>
+                </summary>
+                
+                <div class="custom-select-wrapper" id="mainFontWrapper" style="margin: 20px; width: auto;">
                     <div class="custom-select">
                         <div class="custom-select__trigger">
                             <span id="selectedFontText">BEASTz ESPORTS COMMUNITY 1</span>
@@ -258,35 +364,36 @@
                 </div>
                 <select id="font_family" style="display:none;"></select>
 
-                <div class="slider-container">
-                    <div class="slider-label-row">
-                        <span>Size</span><span class="slider-val" id="fs_val">33</span>
+                <div style="padding: 0 20px 20px 20px;">
+                    <div class="slider-container">
+                        <div class="slider-label-row"><span>Size</span><span class="slider-val" id="fs_val">33</span></div>
+                        <input type="range" id="font_size" min="15" max="80" value="33" oninput="saveAndRefresh()">
                     </div>
-                    <input type="range" id="font_size" min="15" max="80" value="33" oninput="checkFontAndDraw()">
-                </div>
-                <div class="slider-container">
-                    <div class="slider-label-row">
-                        <span>Boldness</span><span class="slider-val" id="fw_val">650</span>
+                    <div class="slider-container">
+                        <div class="slider-label-row"><span>Boldness</span><span class="slider-val" id="fw_val">650</span></div>
+                        <input type="range" id="font_weight" min="100" max="1600" step="50" value="650" oninput="saveAndRefresh()">
                     </div>
-                    <input type="range" id="font_weight" min="100" max="1600" step="50" value="650" oninput="checkFontAndDraw()">
-                </div>
-                <div class="slider-container">
-                    <div class="slider-label-row">
-                        <span>Stretch (Spacing)</span><span class="slider-val" id="fs_stretch_val">0</span>
+                    <div class="slider-container">
+                        <div class="slider-label-row"><span>Stretch (Spacing)</span><span class="slider-val" id="fs_stretch_val">0</span></div>
+                        <input type="range" id="font_stretch" min="-10" max="20" step="0.5" value="0" oninput="saveAndRefresh()">
                     </div>
-                    <input type="range" id="font_stretch" min="-2" max="20" step="0.5" value="0" oninput="checkFontAndDraw()">
+                    <div class="slider-container">
+                        <div class="slider-label-row"><span>Height (Vertical)</span><span class="slider-val" id="fs_v_stretch_val">1.0</span></div>
+                        <input type="range" id="font_v_stretch" min="0.5" max="2.0" step="0.05" value="1" oninput="saveAndRefresh()">
+                    </div>
                 </div>
-            </div>
+            </details>
 
-            <div style="margin-top: 30px; border-top: 1px solid #222; padding-top: 20px;">
-                <div class="section-header">
-                    <h4 style="color:#fff; margin:0; font-size:1.4rem; font-family:'Black Ops One'; letter-spacing:1px; display:flex; align-items:center;">
+            <details style="margin-top: 30px;">
+                <summary>
+                    <span style="display:flex; align-items:center;">
                         <svg class="section-icon" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
                         DATE SETTINGS
-                    </h4>
-                </div>
+                    </span>
+                    <button class="reset-btn" onclick="resetSpecificSection('date')">RESET</button>
+                </summary>
                 
-                <div class="custom-select-wrapper" id="dateFontWrapper">
+                <div class="custom-select-wrapper" id="dateFontWrapper" style="margin: 20px; width: auto;">
                     <div class="custom-select">
                         <div class="custom-select__trigger">
                             <span id="dateSelectedFontText">BEASTz ESPORTS COMMUNITY 25</span>
@@ -297,31 +404,25 @@
                 </div>
                 <select id="date_font_family" style="display:none;"></select>
 
-                <div class="slider-container">
-                    <div class="slider-label-row">
-                        <span>Date Size</span><span class="slider-val" id="date_fs_val">79</span>
+                <div style="padding: 0 20px 20px 20px;">
+                    <div class="slider-container">
+                        <div class="slider-label-row"><span>Date Size</span><span class="slider-val" id="date_fs_val">79</span></div>
+                        <input type="range" id="date_font_size" min="10" max="100" value="79" oninput="saveAndRefresh()">
                     </div>
-                    <input type="range" id="date_font_size" min="10" max="100" value="79" oninput="checkFontAndDraw()">
-                </div>
-                <div class="slider-container">
-                    <div class="slider-label-row">
-                        <span>Date Boldness</span><span class="slider-val" id="date_fw_val">450</span>
+                    <div class="slider-container">
+                        <div class="slider-label-row"><span>Date Boldness</span><span class="slider-val" id="date_fw_val">450</span></div>
+                        <input type="range" id="date_font_weight" min="100" max="1600" step="50" value="450" oninput="saveAndRefresh()">
                     </div>
-                    <input type="range" id="date_font_weight" min="100" max="1600" step="50" value="450" oninput="checkFontAndDraw()">
-                </div>
-                <div class="slider-container">
-                    <div class="slider-label-row">
-                        <span>Date Stretch (Spacing)</span><span class="slider-val" id="date_fs_stretch_val">-2</span>
+                    <div class="slider-container">
+                        <div class="slider-label-row"><span>Date Stretch (Spacing)</span><span class="slider-val" id="date_fs_stretch_val">-2</span></div>
+                        <input type="range" id="date_font_stretch" min="-10" max="20" step="0.5" value="-2" oninput="saveAndRefresh()">
                     </div>
-                    <input type="range" id="date_font_stretch" min="-10" max="20" step="0.5" value="-2" oninput="checkFontAndDraw()">
-                </div>
-                <div class="slider-container">
-                    <div class="slider-label-row">
-                        <span>Date Height (Vertical)</span><span class="slider-val" id="date_v_stretch_val">1.4</span>
+                    <div class="slider-container">
+                        <div class="slider-label-row"><span>Date Height (Vertical)</span><span class="slider-val" id="date_v_stretch_val">1.4</span></div>
+                        <input type="range" id="date_v_stretch" min="0.5" max="2.0" step="0.1" value="1.4" oninput="saveAndRefresh()">
                     </div>
-                    <input type="range" id="date_v_stretch" min="0.5" max="2.0" step="0.1" value="1.4" oninput="checkFontAndDraw()">
                 </div>
-            </div>
+            </details>
 
             <details style="margin-top: 30px;">
                 <summary>
@@ -329,7 +430,7 @@
                         <svg class="section-icon" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L3.16 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
                         ALIGNMENT SETTINGS
                     </span>
-                    <span onclick="resetPosition(event)" class="reset-btn" style="border-color:#555; color:#aaa; font-size:0.7rem; box-shadow:none;">RESET DEFAULT</span>
+                    <button class="reset-btn" onclick="resetSpecificSection('alignment')">RESET</button>
                 </summary>
                 <div class="settings-grid">
                     <div><label>Date X</label> <input type="number" id="date_x" value="750"></div>
@@ -343,12 +444,12 @@
                     <div><label>Total X</label> <input type="number" id="pos_total" value="1002"></div>
                 </div>
                 <div style="padding:0 15px 15px 15px;">
-                    <button class="apply-btn" onclick="checkFontAndDraw()">APPLY POSITION</button>
+                    <button class="apply-btn" onclick="saveAndRefresh()">APPLY POSITION</button>
                 </div>
             </details>
         </div>
 
-        <div class="panel footer-panel animate-on-scroll" id="customFooter">
+        <div class="panel footer-panel" id="customFooter">
             <details>
                 <summary style="display: flex; align-items: center; justify-content: center; gap: 10px;">
                     <svg class="section-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
@@ -362,9 +463,6 @@
                         <a href="https://www.instagram.com/beastzesp.official?igsh=MThpdWN0Y2d1aTNoaQ==" target="_blank" class="social-icon-link">
                             <svg class="social-svg insta-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.012 3.584-.07 4.85c-.148 3.252-1.691 4.771-4.919 4.919-1.265.058-1.645.069-4.85.069s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.012-3.584.07-4.85c.148-3.252 1.691-4.771 4.919-4.919 1.265-.058 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
-                        <a href="https://chat.whatsapp.com/C5RWpb1CmHw85PONpzGGmn?mode=ems_copy_t" target="_blank" class="social-icon-link">
-                            <svg class="social-svg wa-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                        </a>
                     </div>
                 </div>
             </details>
@@ -375,61 +473,365 @@
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
         let uploadedImage = new Image();
-
-        // 1. IMPROVED OBSERVER
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show-content');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+        let customLogo = new Image();
 
         function scrollToFooter() {
-            const footer = document.getElementById('customFooter');
-            const details = footer.querySelector('details');
-            details.open = true;
-            footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.getElementById('customFooter').scrollIntoView({ behavior: 'smooth' });
         }
 
-        const fontList = Array.from({length: 41}, (_, i) => {
-            const fonts = ["Rajdhani", "Teko", "Luckiest Guy", "Russo One", "Bangers", "Black Ops One", "Anton", "Orbitron", "Kanit", "Carter One", "Passion One", "Titan One", "Ultra", "Permanent Marker", "Archivo Black", "Bebas Neue", "Black Han Sans", "Bungee", "Chakra Petch", "Concert One", "Creepster", "Days One", "Fjalla One", "Fredoka", "Fugaz One", "Grenze Gotisch", "Hammersmith One", "Jura", "Monoton", "Oswald", "Paytone One", "Press Start 2P", "Quantico", "Racing Sans One", "Righteous", "Rowdies", "Saira Stencil One", "Shojumaru", "Sigmar One", "Wallpoet", "Arial"];
-            return { val: fonts[i], text: `BEASTz ESPORTS COMMUNITY ${i + 1}` };
-        });
+        // --- 1. FACTORY DEFAULTS (NEVER MUTATE THIS) ---
+        const DEFAULT_PRESETS = [
+            {
+                name: "TEMPLATE 1",
+                file: "noor.jpg",
+                // Table Alignment
+                start_y: 384.6, line_gap: 55.2,
+                pos_name: 365, pos_booyah: 811, pos_kill: 877, pos_place: 940, pos_total: 1002,
+                // Main Font
+                font_size: 33, font_weight: 650, font_stretch: 0, font_v_stretch: 1, font_family: "Rajdhani",
+                // Date Settings
+                date_x: 750, date_y: 220,
+                date_fs: 79, date_fw: 450, date_stretch: -2, date_v_stretch: 1.4, date_font: "Fugaz One",
+                // Organizer & Logo Defaults (UPDATED AS PER REQUEST)
+                org_x: 700, org_y: 35, org_size: 55, org_weight: 800, org_v_stretch: 1,
+                org_font: "Fugaz One", // BEASTz ESPORTS COMMUNITY 25
+                logo_x: 15, logo_y: 15, logo_size: 150,
+                hue: 0, saturation: 100,
+                // Colors (Updated from Screenshot)
+                colors: {
+                    name: {r:0, g:0, b:0}, booyah: {r:0, g:42, b:92}, kill: {r:0, g:0, b:0},
+                    place: {r:0, g:42, b:92}, total: {r:0, g:0, b:0}, date: {r:255, g:0, b:0},
+                    organizer: {r:255, g:0, b:0}
+                }
+            },
+            {
+                name: "TEMPLATE 2",
+                file: "noorr.jpg",
+                // Settings for Noor 2 - UPDATED FROM SCREENSHOTS
+                start_y: 325.4, line_gap: 60,
+                pos_name: 705, pos_booyah: 30000, pos_kill: 1225, pos_place: 1395, pos_total: 1559,
+                font_size: 38, font_weight: 650, font_stretch: 0, font_v_stretch: 1, font_family: "Rajdhani",
+                date_x: 500, date_y: 160,
+                date_fs: 54, date_fw: 450, date_stretch: -2, date_v_stretch: 1.4, date_font: "Kanit",
+                org_x: 1007, org_y: 64, org_size: 73, org_weight: 600, org_v_stretch: 1, org_font: "Black Ops One", // Default for T2
+                logo_x: 79, logo_y: 35, logo_size: 190,
+                hue: 0, saturation: 100,
+                colors: {
+                    name: {r:225, g:120, b:0}, booyah: {r:225, g:120, b:0}, kill: {r:225, g:120, b:0},
+                    place: {r:225, g:120, b:0}, total: {r:225, g:120, b:0}, date: {r:225, g:120, b:0},
+                    organizer: {r:225, g:120, b:0}
+                }
+            },
+            {
+                name: "TEMPLATE 3",
+                file: "nooor.jpg",
+                // Settings for Noor 3 - UPDATED FROM SCREENSHOTS
+                start_y: 322.5, line_gap: 60.2,
+                pos_name: 728, pos_booyah: 1105, pos_kill: 1214, pos_place: 1320, pos_total: 1425,
+                font_size: 28, font_weight: 600, font_stretch: 0, font_v_stretch: 1, font_family: "Rajdhani",
+                date_x: 1100, date_y: 265,
+                date_fs: 41, date_fw: 400, date_stretch: 2, date_v_stretch: 1.2, date_font: "Russo One",
+                org_x: 600, org_y: 100, org_size: 68, org_weight: 900, org_v_stretch: 1,
+                org_font: "Zeyada", // BEASTz ESPORTS COMMUNITY 50
+                logo_x: 53, logo_y: 30, logo_size: 150,
+                hue: 0, saturation: 100,
+                colors: {
+                    name: {r:255, g:255, b:255}, booyah: {r:255, g:255, b:255}, kill: {r:255, g:255, b:255},
+                    place: {r:255, g:255, b:255}, total: {r:255, g:215, b:0}, date: {r:255, g:215, b:0},
+                    organizer: {r:255, g:215, b:0}
+                }
+            },
+            {
+                name: "TEMPLATE 4",
+                file: "noor4.jpg",
+                // Default settings for new template
+                start_y: 347, line_gap: 54.1,
+                pos_name: 170, pos_booyah: 846, pos_kill: 735, pos_place: 90000, pos_total: 960,
+                font_size: 27, font_weight: 500, font_stretch: 0, font_v_stretch: 1, font_family: "Rajdhani",
+                date_x: 940, date_y: 40,
+                date_fs: 24, date_fw: 650, date_stretch: -1.5, date_v_stretch: 1, date_font: "Orbitron",
+                org_x: 540, org_y: 60, org_size: 70, org_weight: 700, org_v_stretch: 1.35, 
+                org_font: "Passion One", // Community 11
+                logo_x: 10, logo_y: 5, logo_size: 99,
+                hue: 0, saturation: 100,
+                colors: {
+                    name: {r:0, g:0, b:0}, booyah: {r:0, g:0, b:0}, kill: {r:0, g:0, b:0},
+                    place: {r:0, g:0, b:0}, total: {r:0, g:0, b:0}, date: {r:255, g:255, b:255},
+                    organizer: {r:0, g:42, b:92}
+                }
+            }
+        ];
+
+        // --- GLOBAL STATE ---
+        let activePresets = JSON.parse(JSON.stringify(DEFAULT_PRESETS));
+        let currentTempIndex = 0;
+        let colorSettings = {
+            'name': { label: 'TEAM NAME', val: {r:0, g:0, b:0} },
+            'booyah': { label: 'BOOYAH', val: {r:0, g:0, b:0} },
+            'kill': { label: 'KILLS', val: {r:0, g:0, b:0} },
+            'place': { label: 'PLACE PTS', val: {r:0, g:0, b:0} },
+            'total': { label: 'TOTAL PTS', val: {r:0, g:0, b:0} },
+            'date': { label: 'DATE', val: {r:0, g:0, b:0} },
+            'organizer': { label: 'ORGANIZER', val: {r:0, g:0, b:0} }
+        };
+
+        const fontArray = ["Rajdhani", "Teko", "Black Ops One", "Russo One", "Luckiest Guy", "Bangers", "Anton", "Orbitron", "Kanit", "Carter One", "Passion One", "Titan One", "Ultra", "Permanent Marker", "Archivo Black", "Bebas Neue", "Black Han Sans", "Bungee", "Chakra Petch", "Concert One", "Creepster", "Days One", "Fjalla One", "Fredoka", "Fugaz One", "Grenze Gotisch", "Hammersmith One", "Jura", "Monoton", "Oswald", "Paytone One", "Press Start 2P", "Quantico", "Racing Sans One", "Righteous", "Rowdies", "Saira Stencil One", "Shojumaru", "Sigmar One", "Teko", "Titan One", "Ultra", "Wallpoet", "Dancing Script", "Great Vibes", "Sacramento", "Allura", "Parisienne", "Cookie", "Mrs Saint Delafield", "Herr Von Muellerhoff", "Meie Script", "Cedarville Cursive", "Zeyada"];
+        
+        const fontList = fontArray.map((f, i) => ({ val: f, text: `BEASTz ESPORTS COMMUNITY ${i + 1}` }));
+
+        // --- MATCH HISTORY SYSTEM ---
+        let matchCount = 1;
+        // Stores data for EACH match: [ {name, kill, place, booyah}, ... ]
+        // Index 0 = Match 1, Index 1 = Match 2, etc.
+        let allMatchesData = [];
 
         window.onload = function() {
-            uploadedImage.src = "noorgoodbye.jpg"; 
             createInputs();
-            renderColorPicker();
-            // INIT BOTH PICKERS
             initCustomFontPicker('mainFontWrapper', 'fontOptionsList', 'font_family', 'selectedFontText');
             initCustomFontPicker('dateFontWrapper', 'dateFontOptionsList', 'date_font_family', 'dateSelectedFontText');
-            
-            // APPLY DATE DEFAULTS ON LOAD
-            resetTypography();
+            initCustomFontPicker('orgFontWrapper', 'orgFontOptionsList', 'org_font_family', 'orgSelectedFontText');
+
+            document.getElementById('logo_upload').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if(file){
+                    const reader = new FileReader();
+                    reader.onload = function(event){
+                        customLogo.src = event.target.result;
+                        customLogo.onload = function() { checkFontAndDraw(); }
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            loadPresetToUI(0);
+            uploadedImage.src = activePresets[0].file;
+            // Initialize empty data for match 1
+            allMatchesData[0] = Array.from({length: 12}, () => ({ name: "", kill: "", place: "", booyah: "" }));
         };
+
+        function removeLogo() {
+            document.getElementById('logo_upload').value = ""; 
+            customLogo.src = ""; 
+            checkFontAndDraw();
+        }
+
+        // --- NAVIGATION LOGIC ---
+        function saveCurrentMatchData() {
+            // Save what's currently in inputs to the current match index
+            let currentData = [];
+            for(let i=1; i<=12; i++) {
+                currentData.push({
+                    name: document.getElementById(`name_${i}`).value,
+                    kill: document.getElementById(`kill_${i}`).value,
+                    place: document.getElementById(`place_${i}`).value,
+                    booyah: document.getElementById(`booyah_${i}`).value
+                });
+            }
+            allMatchesData[matchCount - 1] = currentData;
+        }
+
+        function loadMatchData(index) {
+            let data = allMatchesData[index];
+            if (!data) {
+                // If new match, maybe keep names from previous match but clear points?
+                // User said: "teams naam rahega or sare piche 1 match ke points calculate rahenge uske or points hatt jaaenge"
+                // So if we go to a NEW match, we copy names from the previous match (if exists)
+                let prevData = allMatchesData[index - 1];
+                for(let i=1; i<=12; i++) {
+                    document.getElementById(`name_${i}`).value = prevData ? prevData[i-1].name : "";
+                    document.getElementById(`kill_${i}`).value = "";
+                    document.getElementById(`place_${i}`).value = data[i-1].place;
+                    document.getElementById(`booyah_${i}`).value = data[i-1].booyah;
+                }
+            } else {
+                // Load existing data for this match history
+                for(let i=1; i<=12; i++) {
+                    document.getElementById(`name_${i}`).value = data[i-1].name;
+                    document.getElementById(`kill_${i}`).value = data[i-1].kill;
+                    document.getElementById(`place_${i}`).value = data[i-1].place;
+                    document.getElementById(`booyah_${i}`).value = data[i-1].booyah;
+                }
+            }
+        }
+
+        function nextMatch() {
+            if(matchCount >= 6) { alert("Max 6 Matches!"); return; }
+            
+            saveCurrentMatchData(); // Save current before moving
+            matchCount++;
+            
+            // Prepare next match data container if not exists
+            if (!allMatchesData[matchCount - 1]) {
+                // This is a new match, create empty slot (logic in loadMatchData handles pre-fill)
+                allMatchesData[matchCount - 1] = null; 
+            }
+            
+            loadMatchData(matchCount - 1);
+            document.getElementById('matchCounter').innerText = matchCount;
+            saveAndRefresh();
+        }
+
+        function prevMatch() {
+            if(matchCount <= 1) { alert("Already at Match 1"); return; }
+            
+            saveCurrentMatchData(); // Save current state before going back
+            matchCount--;
+            
+            loadMatchData(matchCount - 1);
+            document.getElementById('matchCounter').innerText = matchCount;
+            saveAndRefresh();
+        }
+
+        function resetTournamentData() {
+            if(!confirm("Reset ALL Match History?")) return;
+            allMatchesData = [];
+            matchCount = 1;
+            document.getElementById('matchCounter').innerText = matchCount;
+            // Clear inputs completely
+            for(let i=1; i<=12; i++) {
+                document.getElementById(`name_${i}`).value = "";
+                document.getElementById(`kill_${i}`).value = "";
+                document.getElementById(`place_${i}`).value = "";
+                document.getElementById(`booyah_${i}`).value = "";
+            }
+            allMatchesData[0] = Array.from({length: 12}, () => ({ name: "", kill: "", place: "", booyah: "" }));
+            saveAndRefresh();
+        }
+
+        // --- PRESET LOGIC ---
+        function saveCurrentPresetToMemory() {
+            const p = activePresets[currentTempIndex];
+            p.start_y = parseFloat(document.getElementById('start_y').value);
+            p.line_gap = parseFloat(document.getElementById('line_gap').value);
+            p.pos_name = parseFloat(document.getElementById('pos_name').value);
+            p.pos_booyah = parseFloat(document.getElementById('pos_booyah').value);
+            p.pos_kill = parseFloat(document.getElementById('pos_kill').value);
+            p.pos_place = parseFloat(document.getElementById('pos_place').value);
+            p.pos_total = parseFloat(document.getElementById('pos_total').value);
+
+            p.font_size = document.getElementById('font_size').value;
+            p.font_weight = document.getElementById('font_weight').value;
+            p.font_stretch = document.getElementById('font_stretch').value;
+            p.font_v_stretch = document.getElementById('font_v_stretch').value;
+            p.font_family = document.getElementById('font_family').value;
+
+            p.date_x = parseFloat(document.getElementById('date_x').value);
+            p.date_y = parseFloat(document.getElementById('date_y').value);
+            p.date_fs = document.getElementById('date_font_size').value;
+            p.date_fw = document.getElementById('date_font_weight').value;
+            p.date_stretch = document.getElementById('date_font_stretch').value;
+            p.date_v_stretch = document.getElementById('date_v_stretch').value;
+            p.date_font = document.getElementById('date_font_family').value;
+
+            p.org_x = parseFloat(document.getElementById('org_x').value);
+            p.org_y = parseFloat(document.getElementById('org_y').value);
+            p.org_size = document.getElementById('org_size').value;
+            p.org_weight = document.getElementById('org_weight').value;
+            p.org_v_stretch = document.getElementById('org_v_stretch').value;
+            p.org_font = document.getElementById('org_font_family').value;
+            
+            p.logo_x = parseFloat(document.getElementById('logo_x').value);
+            p.logo_y = parseFloat(document.getElementById('logo_y').value);
+            p.logo_size = document.getElementById('logo_size').value;
+
+            p.hue = document.getElementById('template_hue').value;
+            p.saturation = document.getElementById('template_sat').value;
+
+            p.colors = JSON.parse(JSON.stringify(
+                Object.fromEntries(Object.entries(colorSettings).map(([k, v]) => [k, v.val]))
+            ));
+        }
+
+        function loadPresetToUI(index) {
+            const p = activePresets[index];
+            document.getElementById('templateNameDisplay').innerText = p.name;
+
+            document.getElementById('start_y').value = p.start_y;
+            document.getElementById('line_gap').value = p.line_gap;
+            document.getElementById('pos_name').value = p.pos_name;
+            document.getElementById('pos_booyah').value = p.pos_booyah;
+            document.getElementById('pos_kill').value = p.pos_kill;
+            document.getElementById('pos_place').value = p.pos_place;
+            document.getElementById('pos_total').value = p.pos_total;
+
+            document.getElementById('font_size').value = p.font_size;
+            document.getElementById('font_weight').value = p.font_weight;
+            document.getElementById('font_stretch').value = p.font_stretch;
+            document.getElementById('font_v_stretch').value = p.font_v_stretch;
+            document.getElementById('font_family').value = p.font_family;
+            
+            let fontObj = fontList.find(f => f.val === p.font_family);
+            if(fontObj) document.getElementById('selectedFontText').innerText = fontObj.text;
+
+            document.getElementById('date_x').value = p.date_x;
+            document.getElementById('date_y').value = p.date_y;
+            document.getElementById('date_font_size').value = p.date_fs;
+            document.getElementById('date_font_weight').value = p.date_fw;
+            document.getElementById('date_font_stretch').value = p.date_stretch;
+            document.getElementById('date_v_stretch').value = p.date_v_stretch;
+            document.getElementById('date_font_family').value = p.date_font;
+
+            let dFontObj = fontList.find(f => f.val === p.date_font);
+            if(dFontObj) document.getElementById('dateSelectedFontText').innerText = dFontObj.text;
+
+            document.getElementById('org_x').value = p.org_x;
+            document.getElementById('org_y').value = p.org_y;
+            document.getElementById('org_size').value = p.org_size;
+            document.getElementById('org_weight').value = p.org_weight;
+            document.getElementById('org_v_stretch').value = p.org_v_stretch;
+            document.getElementById('org_font_family').value = p.org_font || "Rajdhani";
+            let oFontObj = fontList.find(f => f.val === (p.org_font || "Rajdhani"));
+            if(oFontObj) document.getElementById('orgSelectedFontText').innerText = oFontObj.text;
+
+            document.getElementById('logo_x').value = p.logo_x;
+            document.getElementById('logo_y').value = p.logo_y;
+            document.getElementById('logo_size').value = p.logo_size;
+
+            document.getElementById('template_hue').value = p.hue || 0;
+            document.getElementById('template_sat').value = (p.saturation !== undefined) ? p.saturation : 100;
+
+            Object.keys(colorSettings).forEach(key => {
+                if(p.colors[key]) {
+                    colorSettings[key].val = {...p.colors[key]};
+                }
+            });
+            renderColorPicker();
+            
+            document.getElementById('fs_val').innerText = p.font_size;
+            document.getElementById('fw_val').innerText = p.font_weight;
+            document.getElementById('fs_stretch_val').innerText = p.font_stretch;
+            document.getElementById('fs_v_stretch_val').innerText = p.font_v_stretch;
+
+            document.getElementById('date_fs_val').innerText = p.date_fs;
+            document.getElementById('date_fw_val').innerText = p.date_fw;
+            document.getElementById('date_fs_stretch_val').innerText = p.date_stretch;
+            document.getElementById('date_v_stretch_val').innerText = p.date_v_stretch;
+            
+            document.getElementById('org_size_val').innerText = p.org_size;
+            document.getElementById('org_weight_val').innerText = p.org_weight;
+            document.getElementById('org_v_stretch_val').innerText = p.org_v_stretch;
+
+            document.getElementById('logo_size_val').innerText = p.logo_size;
+            document.getElementById('hue_val').innerText = p.hue || 0;
+            document.getElementById('sat_val').innerText = (p.saturation !== undefined) ? p.saturation : 100;
+
+            updateFontsAndRefresh();
+        }
+
+        function changeTemplate(dir) {
+            saveCurrentPresetToMemory();
+            currentTempIndex += dir;
+            if(currentTempIndex >= activePresets.length) currentTempIndex = 0;
+            if(currentTempIndex < 0) currentTempIndex = activePresets.length - 1;
+            loadPresetToUI(currentTempIndex);
+            uploadedImage.src = activePresets[currentTempIndex].file;
+        }
 
         uploadedImage.onload = function() {
             canvas.width = uploadedImage.width;
             canvas.height = uploadedImage.height;
             ctx.drawImage(uploadedImage, 0, 0);
-            checkFontAndDraw();
-        };
-        
-        uploadedImage.onerror = function() {
-            alert("⚠️ TAMPLATE NOT FOUND .");
-        };
-
-        const colorSettings = {
-            'name': { label: 'TEAM NAME', val: {r:0, g:42, b:92} },
-            'booyah': { label: 'BOOYAH', val: {r:0, g:42, b:92} },
-            'kill': { label: 'KILLS', val: {r:255, g:0, b:0} },
-            'place': { label: 'PLACE PTS', val: {r:0, g:42, b:92} },
-            'total': { label: 'TOTAL PTS', val: {r:0, g:0, b:0} },
-            'date': { label: 'DATE', val: {r:255, g:255, b:255} } 
+            updateFontsAndRefresh();
         };
         
         function rgbToCss(c) { return `rgb(${c.r}, ${c.g}, ${c.b})`; }
@@ -461,7 +863,12 @@
                 
                 previewBox.onclick = () => {
                     const mixer = document.getElementById(`mixer_${key}`);
-                    mixer.classList.toggle('active');
+                    if(mixer.style.display === 'block') {
+                        mixer.style.display = 'none';
+                    } else {
+                        mixer.style.display = 'block';
+                        updateSliderGradients(key);
+                    }
                 };
 
                 headerRow.appendChild(label);
@@ -510,14 +917,13 @@
                         updateColorDisplay(key);
                         
                         const m = document.getElementById(`mixer_${key}`);
-                        m.querySelector('.slider-red').value = color.r;
-                        m.querySelector('.slider-green').value = color.g;
-                        m.querySelector('.slider-blue').value = color.b;
+                        m.querySelector('.slider-r').value = color.r;
+                        m.querySelector('.slider-g').value = color.g;
+                        m.querySelector('.slider-b').value = color.b;
                         updateSliderGradients(key);
                         
                         document.querySelectorAll(`[data-key="${key}"]`).forEach(el => el.classList.remove('selected'));
                         circle.classList.add('selected');
-                        // Set current color as glow variable
                         circle.style.setProperty('--selected-color-glow', rgbToCss(color));
                     };
                     circle.setAttribute('data-key', key);
@@ -528,8 +934,6 @@
                 group.appendChild(mixer);
                 group.appendChild(swatchRow);
                 container.appendChild(group);
-                
-                setTimeout(() => updateSliderGradients(key), 100);
             });
         }
 
@@ -538,23 +942,23 @@
             const mixer = document.getElementById(`mixer_${key}`);
             if(!mixer) return;
 
-            const rSlider = mixer.querySelector('.slider-red');
-            const gSlider = mixer.querySelector('.slider-green');
-            const bSlider = mixer.querySelector('.slider-blue');
+            const rSlider = mixer.querySelector('.slider-r');
+            const gSlider = mixer.querySelector('.slider-g');
+            const bSlider = mixer.querySelector('.slider-b');
 
-            rSlider.style.background = `linear-gradient(to right, rgb(0, ${current.g}, ${current.b}), rgb(255, ${current.g}, ${current.b}))`;
-            gSlider.style.background = `linear-gradient(to right, rgb(${current.r}, 0, ${current.b}), rgb(${current.r}, 255, ${current.b}))`;
-            bSlider.style.background = `linear-gradient(to right, rgb(${current.r}, ${current.g}, 0), rgb(${current.r}, ${current.g}, 255))`;
+            if(rSlider) rSlider.style.background = `linear-gradient(to right, rgb(0, ${current.g}, ${current.b}), rgb(255, ${current.g}, ${current.b}))`;
+            if(gSlider) gSlider.style.background = `linear-gradient(to right, rgb(${current.r}, 0, ${current.b}), rgb(${current.r}, 255, ${current.b}))`;
+            if(bSlider) bSlider.style.background = `linear-gradient(to right, rgb(${current.r}, ${current.g}, 0), rgb(${current.r}, ${current.g}, 255))`;
         }
 
         function updateColorDisplay(key) {
             const rgb = colorSettings[key].val;
             const css = rgbToCss(rgb);
             document.getElementById(`preview_${key}`).style.backgroundColor = css;
+            activePresets[currentTempIndex].colors[key] = {...rgb};
             checkFontAndDraw();
         }
 
-        // Generic Function for Font Pickers
         function initCustomFontPicker(wrapperId, listId, selectId, textId) {
             const wrapper = document.getElementById(wrapperId);
             const trigger = wrapper.querySelector('.custom-select__trigger');
@@ -569,17 +973,13 @@
                 option.dataset.value = font.val; 
                 option.style.fontFamily = font.val; 
                 
-                // Check default selections based on ID
-                if(selectId === 'font_family' && font.val === 'Rajdhani') option.classList.add('selected');
-                if(selectId === 'date_font_family' && font.val === 'Fugaz One') option.classList.add('selected');
-                
                 option.addEventListener('click', function() {
                     wrapper.querySelectorAll('.custom-option').forEach(el => el.classList.remove('selected'));
                     this.classList.add('selected');
                     selectedText.innerText = this.innerText;
                     hiddenSelect.value = this.dataset.value;
                     wrapper.classList.remove('open');
-                    checkFontAndDraw();
+                    updateFontsAndRefresh();
                 });
                 optionsList.appendChild(option);
 
@@ -616,114 +1016,226 @@
             }
         }
 
-        function resetTypography() {
-            document.getElementById('font_size').value = 33;
-            document.getElementById('font_weight').value = 650;
-            document.getElementById('font_stretch').value = 0; // Reset Stretch
-            document.getElementById('font_family').value = "Rajdhani";
-            document.getElementById('selectedFontText').innerText = "BEASTz ESPORTS COMMUNITY 1";
+        function resetSpecificSection(section) {
+            const defaults = DEFAULT_PRESETS[currentTempIndex];
+            const p = activePresets[currentTempIndex];
             
-            // RESET DATE TO SCREENSHOT VALUES
-            document.getElementById('date_font_size').value = 79;
-            document.getElementById('date_font_weight').value = 450;
-            document.getElementById('date_font_stretch').value = -2; 
-            document.getElementById('date_v_stretch').value = 1.4; 
-
-            document.getElementById('date_font_family').value = "Fugaz One";
-            document.getElementById('dateSelectedFontText').innerText = "BEASTz ESPORTS COMMUNITY 25"; 
-
-            // Update UI selection state
-            document.querySelectorAll('.custom-option').forEach(el => el.classList.remove('selected'));
-            document.querySelector(`#mainFontWrapper .custom-option[data-value="Rajdhani"]`).classList.add('selected');
-            document.querySelector(`#dateFontWrapper .custom-option[data-value="Fugaz One"]`).classList.add('selected');
-
-            checkFontAndDraw();
-        }
-
-        function resetPosition(event) {
-            if(event) event.preventDefault();
-            // Default Alignment Values
-            document.getElementById('start_y').value = 384.6;
-            document.getElementById('line_gap').value = 55.2;
-            document.getElementById('pos_name').value = 365; 
-            document.getElementById('pos_booyah').value = 811;
-            document.getElementById('pos_kill').value = 877;
-            document.getElementById('pos_place').value = 940;
-            document.getElementById('pos_total').value = 1002;
-            // Date Reset
-            document.getElementById('date_x').value = 750;
-            document.getElementById('date_y').value = 220;
-            checkFontAndDraw();
+            if(confirm("Reset ONLY settings in this section?")) {
+                if (section === 'hue') {
+                    p.hue = defaults.hue;
+                    p.saturation = defaults.saturation;
+                    document.getElementById('template_hue').value = p.hue;
+                    document.getElementById('template_sat').value = (p.saturation !== undefined) ? p.saturation : 100;
+                    document.getElementById('hue_val').innerText = p.hue;
+                    document.getElementById('sat_val').innerText = p.saturation;
+                }
+                else if (section === 'colors') {
+                    p.colors = JSON.parse(JSON.stringify(defaults.colors));
+                    Object.keys(colorSettings).forEach(key => colorSettings[key].val = {...p.colors[key]});
+                    renderColorPicker();
+                }
+                else if (section === 'logo_org') {
+                    p.org_x = defaults.org_x;
+                    p.org_y = defaults.org_y;
+                    p.org_size = defaults.org_size;
+                    p.org_weight = defaults.org_weight;
+                    p.org_v_stretch = defaults.org_v_stretch;
+                    p.org_font = defaults.org_font; 
+                    p.logo_x = defaults.logo_x;
+                    p.logo_y = defaults.logo_y;
+                    p.logo_size = defaults.logo_size;
+                    loadPresetToUI(currentTempIndex); 
+                }
+                else if (section === 'table_font') {
+                    p.font_size = defaults.font_size;
+                    p.font_weight = defaults.font_weight;
+                    p.font_stretch = defaults.font_stretch;
+                    p.font_v_stretch = defaults.font_v_stretch;
+                    p.font_family = defaults.font_family;
+                    loadPresetToUI(currentTempIndex);
+                }
+                else if (section === 'date') {
+                    p.date_x = defaults.date_x;
+                    p.date_y = defaults.date_y;
+                    p.date_fs = defaults.date_fs;
+                    p.date_fw = defaults.date_fw;
+                    p.date_stretch = defaults.date_stretch;
+                    p.date_v_stretch = defaults.date_v_stretch;
+                    p.date_font = defaults.date_font;
+                    loadPresetToUI(currentTempIndex);
+                }
+                else if (section === 'alignment') {
+                    p.start_y = defaults.start_y;
+                    p.line_gap = defaults.line_gap;
+                    p.pos_name = defaults.pos_name;
+                    p.pos_booyah = defaults.pos_booyah;
+                    p.pos_kill = defaults.pos_kill;
+                    p.pos_place = defaults.pos_place;
+                    p.pos_total = defaults.pos_total;
+                    loadPresetToUI(currentTempIndex);
+                }
+                updateFontsAndRefresh();
+            }
         }
 
         function checkFontAndDraw() {
+            // Update labels
             document.getElementById('fs_val').innerText = document.getElementById('font_size').value;
             document.getElementById('fw_val').innerText = document.getElementById('font_weight').value;
             document.getElementById('fs_stretch_val').innerText = document.getElementById('font_stretch').value;
+            document.getElementById('fs_v_stretch_val').innerText = document.getElementById('font_v_stretch').value;
 
             document.getElementById('date_fs_val').innerText = document.getElementById('date_font_size').value;
             document.getElementById('date_fw_val').innerText = document.getElementById('date_font_weight').value;
             document.getElementById('date_fs_stretch_val').innerText = document.getElementById('date_font_stretch').value;
             document.getElementById('date_v_stretch_val').innerText = document.getElementById('date_v_stretch').value;
             
+            document.getElementById('org_size_val').innerText = document.getElementById('org_size').value;
+            document.getElementById('org_weight_val').innerText = document.getElementById('org_weight').value;
+            document.getElementById('org_v_stretch_val').innerText = document.getElementById('org_v_stretch').value;
+
+            document.getElementById('logo_size_val').innerText = document.getElementById('logo_size').value;
+            document.getElementById('hue_val').innerText = document.getElementById('template_hue').value;
+            document.getElementById('sat_val').innerText = document.getElementById('template_sat').value;
+
+            // Direct render call for smooth slider performance
+            generateTable();
+        }
+
+        // New function specifically for Font Family changes that REQUIRE loading
+        function updateFontsAndRefresh() {
             const fontName = document.getElementById('font_family').value;
             const dateFontName = document.getElementById('date_font_family').value;
+            const orgFontName = document.getElementById('org_font_family').value;
             
-            // Load required fonts then draw
             document.fonts.load(`10pt "${fontName}"`).then(() => {
                 document.fonts.load(`10pt "${dateFontName}"`).then(() => {
-                    generateTable();
+                    document.fonts.load(`10pt "${orgFontName}"`).then(() => {
+                        checkFontAndDraw();
+                    });
                 });
             });
+        }
+
+        function saveAndRefresh() {
+            saveCurrentMatchData();
+            checkFontAndDraw();
         }
 
         function generateTable() {
             if (!uploadedImage.complete || uploadedImage.naturalWidth === 0) return;
 
-            let teams = [];
-            for (let i = 1; i <= 12; i++) {
-                let name = document.getElementById(`name_${i}`).value;
-                // --- AUTO CAPITALIZATION ADDED HERE ---
-                if (name) name = name.toUpperCase();
-                
-                let booyah = document.getElementById(`booyah_${i}`).value || "-"; 
-                let kills = parseInt(document.getElementById(`kill_${i}`).value) || 0;
-                let place = parseInt(document.getElementById(`place_${i}`).value) || 0;
-                let total = kills + place;
-                if(name || total > 0 || booyah !== "-") {
-                    teams.push({ name: name || `Team ${i}`, booyah, kills, place, total });
-                }
+            // Recalculate Totals from History + Current Inputs
+            let aggregatedTeams = Array.from({length: 12}, () => ({ name: "", kills: 0, place: 0, booyah: 0, total: 0 }));
+
+            // Iterate through ALL matches up to current count (or max filled)
+            allMatchesData.forEach((matchData, matchIdx) => {
+                if(!matchData) return;
+                matchData.forEach((team, teamIdx) => {
+                    if(teamIdx >= 12) return;
+                    
+                    if(team.name) aggregatedTeams[teamIdx].name = team.name;
+
+                    let k = parseInt(team.kill) || 0;
+                    let p = parseInt(team.place) || 0;
+                    
+                    let b = 0;
+                    if(team.booyah) {
+                        let lowerB = team.booyah.toString().toLowerCase();
+                        if(lowerB.includes('b')) b = 1;
+                        else if(!isNaN(parseInt(lowerB))) b = parseInt(lowerB);
+                    }
+
+                    aggregatedTeams[teamIdx].kills += k;
+                    aggregatedTeams[teamIdx].place += p;
+                    aggregatedTeams[teamIdx].booyah += b;
+                    aggregatedTeams[teamIdx].total += (k + p);
+                });
+            });
+
+            // Prepare for rendering
+            let renderTeams = aggregatedTeams.map((t, i) => {
+                return {
+                    name: t.name ? t.name.toUpperCase() : `TEAM ${i+1}`,
+                    booyah: t.booyah > 0 ? t.booyah : "-",
+                    kills: t.kills,
+                    place: t.place,
+                    total: t.total
+                };
+            }).filter(t => t.total > 0 || t.name.includes("TEAM") === false || t.booyah !== "-"); 
+
+            // If list empty (start), show 12 placeholders
+            if (renderTeams.length === 0) {
+                renderTeams = aggregatedTeams.map((t,i) => ({name: `TEAM ${i+1}`, booyah:"-", kills:0, place:0, total:0}));
             }
 
-            teams.sort((a, b) => {
+            // Sort
+            renderTeams.sort((a, b) => {
                 if (b.total !== a.total) return b.total - a.total;
-                return b.place - a.place;
+                return b.place - a.place; 
             });
 
             ctx.clearRect(0,0, canvas.width, canvas.height);
-            ctx.drawImage(uploadedImage, 0, 0);
             
-            // --- DRAW DATE ---
+            // DRAW IMAGE WITH HUE & SATURATION
+            ctx.save();
+            const hueVal = document.getElementById('template_hue').value;
+            const satVal = document.getElementById('template_sat').value;
+            ctx.filter = `hue-rotate(${hueVal}deg) saturate(${satVal}%)`;
+            ctx.drawImage(uploadedImage, 0, 0);
+            ctx.restore(); 
+            
+            // LOGO
+            if(customLogo.src && customLogo.complete && document.getElementById('logo_upload').value !== "") {
+                const lx = parseFloat(document.getElementById('logo_x').value);
+                const ly = parseFloat(document.getElementById('logo_y').value);
+                const lSize = parseFloat(document.getElementById('logo_size').value);
+                const scale = lSize / customLogo.width;
+                const lh = customLogo.height * scale;
+                ctx.drawImage(customLogo, lx, ly, lSize, lh);
+            }
+
+            // ORGANIZER
+            let orgText = document.getElementById('organizer_name').value;
+            if(orgText) {
+                orgText = orgText.toUpperCase();
+                const ox = parseFloat(document.getElementById('org_x').value);
+                const oy = parseFloat(document.getElementById('org_y').value);
+                const oSize = parseFloat(document.getElementById('org_size').value);
+                const oWeight = parseFloat(document.getElementById('org_weight').value);
+                const oFont = document.getElementById('org_font_family').value;
+                const oVStretch = parseFloat(document.getElementById('org_v_stretch').value);
+
+                ctx.save();
+                ctx.translate(ox, oy);
+                ctx.scale(1, oVStretch);
+                
+                ctx.font = `${oWeight} ${oSize}px "${oFont}", sans-serif`;
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.fillStyle = rgbToCss(colorSettings.organizer.val);
+                ctx.fillText(orgText, 0, 0);
+                ctx.restore();
+            }
+
+            // DATE
             let dateText = document.getElementById('tournament_date').value;
             if(dateText) {
-                // --- AUTO CAPITALIZATION FOR DATE TOO ---
                 dateText = dateText.toUpperCase();
-                
                 const dFont = document.getElementById('date_font_family').value;
                 const dSize = parseInt(document.getElementById('date_font_size').value);
                 const dWeight = parseInt(document.getElementById('date_font_weight').value);
                 const dStretch = parseFloat(document.getElementById('date_font_stretch').value); 
-                const dVStretch = parseFloat(document.getElementById('date_v_stretch').value); // Vertical Stretch
+                const dVStretch = parseFloat(document.getElementById('date_v_stretch').value);
                 const dX = parseFloat(document.getElementById('date_x').value);
                 const dY = parseFloat(document.getElementById('date_y').value);
                 
-                // Date stroke logic
                 let dStroke = 0;
                 if (dWeight > 400) dStroke = (dSize / 25) * (dWeight / 400);
                 
-                ctx.save(); // Save context to apply transformations only to date
+                ctx.save();
                 ctx.translate(dX, dY);
-                ctx.scale(1, dVStretch); // Apply vertical stretch
+                ctx.scale(1, dVStretch);
                 
                 ctx.font = `${dWeight > 600 ? 600 : dWeight} ${dSize}px "${dFont}", sans-serif`;
                 ctx.letterSpacing = `${dStretch}px`; 
@@ -731,7 +1243,6 @@
                 ctx.textBaseline = "middle";
                 const dColor = rgbToCss(colorSettings.date.val);
                 
-                // Draw relative to translation (0,0)
                 if(dStroke > 0) {
                     ctx.lineWidth = dStroke;
                     ctx.strokeStyle = dColor;
@@ -740,11 +1251,10 @@
                 }
                 ctx.fillStyle = dColor;
                 ctx.fillText(dateText, 0, 0);
-                
-                ctx.restore(); // Restore context
+                ctx.restore();
             }
 
-            // --- DRAW TABLE ---
+            // TABLE RENDER
             const startY = parseFloat(document.getElementById('start_y').value);
             const lineGap = parseFloat(document.getElementById('line_gap').value);
             const xName = parseFloat(document.getElementById('pos_name').value);
@@ -756,20 +1266,27 @@
             const fontSize = parseInt(document.getElementById('font_size').value);
             const rawWeight = parseInt(document.getElementById('font_weight').value);
             const fontStretch = parseFloat(document.getElementById('font_stretch').value); 
+            const fontVStretch = parseFloat(document.getElementById('font_v_stretch').value);
             const fontFamily = document.getElementById('font_family').value;
 
             let strokeWidth = 0;
-            if (rawWeight > 400) {
-                 strokeWidth = (fontSize / 25) * (rawWeight / 400);
-            }
+            if (rawWeight > 400) strokeWidth = (fontSize / 25) * (rawWeight / 400);
             let cssWeight = rawWeight > 600 ? 600 : rawWeight;
+            
+            // Note: ctx.font scaling is handled manually below using transform
             ctx.font = `${cssWeight} ${fontSize}px "${fontFamily}", sans-serif`;
             ctx.letterSpacing = `${fontStretch}px`; 
 
-            teams.forEach((team, index) => {
+            renderTeams.forEach((team, index) => {
+                if(index >= 12) return;
+
                 let y = startY + (index * lineGap);
                 
                 function drawSuperText(text, x, align, colorRGB) {
+                    ctx.save();
+                    ctx.translate(x, y);
+                    ctx.scale(1, fontVStretch); // Apply Vertical Stretch to Table Font
+
                     ctx.textAlign = align;
                     ctx.textBaseline = 'middle'; 
                     const color = rgbToCss(colorRGB);
@@ -778,36 +1295,74 @@
                         ctx.lineWidth = strokeWidth;
                         ctx.strokeStyle = color;
                         ctx.lineJoin = 'round'; 
-                        ctx.strokeText(text, x, y);
+                        ctx.strokeText(text, 0, 0);
                     }
                     ctx.fillStyle = color;
-                    ctx.fillText(text, x, y);
+                    ctx.fillText(text, 0, 0);
+                    ctx.restore();
                 }
 
                 drawSuperText(team.name, xName, "left", colorSettings.name.val);
-                drawSuperText(team.booyah === "-" ? "" : team.booyah, xBooyah, "center", colorSettings.booyah.val);
+                drawSuperText(team.booyah, xBooyah, "center", colorSettings.booyah.val);
                 drawSuperText(team.kills, xKill, "center", colorSettings.kill.val);
                 drawSuperText(team.place, xPlace, "center", colorSettings.place.val);
                 drawSuperText(team.total, xTotal, "center", colorSettings.total.val);
             });
-             // Reset spacing
-             ctx.letterSpacing = '0px';
+            ctx.letterSpacing = '0px';
+
+            // --- WATERMARK (by Beastcalc) ---
+            ctx.save();
+            
+            let wmColor = "rgba(255, 255, 255, 0.9)"; // Default White
+            let wmX = 2; // Default X Offset (Left Corner)
+
+            // Template Specific Logic
+            if (currentTempIndex === 0) { // Template 1
+                wmColor = "rgba(255, 255, 255, 0.9)"; // White
+                wmX = 5; // Left Corner (Shifted further left to avoid WhatsApp logo)
+            } else if (currentTempIndex === 1) { // Template 2
+                wmColor = "rgba(0, 0, 0, 0.9)"; // Black
+                wmX = 40; // Slightly right/up
+            } else if (currentTempIndex === 2) { // Template 3
+                wmColor = "rgba(255, 255, 255, 0.9)"; // White
+                wmX = 25; // Left Corner
+            } else if (currentTempIndex === 3) { // Template 4 (Default)
+                wmColor = "rgba(255, 255, 255, 0.9)";
+                wmX = 25;
+            }
+
+            ctx.fillStyle = wmColor;
+            // Reduce shadow for cleaner look
+            ctx.shadowColor = "rgba(0,0,0,0.5)"; 
+            ctx.shadowBlur = 2; 
+
+            ctx.textAlign = "left";
+            ctx.textBaseline = "bottom";
+
+            // "by" text
+            ctx.font = "bold 25px 'Rajdhani', sans-serif"; // Increased size
+            ctx.fillText("by", wmX, canvas.height - 65); // Gap increased (moved up)
+
+            // "Beastcalc" text
+            ctx.font = "bold 50px 'Rajdhani', sans-serif";
+            ctx.fillText("Beastcalc", wmX, canvas.height - 15);
+            ctx.restore();
         }
 
         function downloadImage() {
             canvas.toBlob(function(blob) {
                 try {
-                    const file = new File([blob], "noorgoodbye.png", { type: "image/png" });
+                    const file = new File([blob], "pointtable.png", { type: "image/png" });
                     const link = document.createElement('a');
                     link.href = URL.createObjectURL(file);
-                    link.download = "noorgoodbye.png";
+                    link.download = "pointtable.png";
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
                 } catch (e) {
                     const url = URL.createObjectURL(blob);
                     const link = document.createElement('a');
-                    link.download = 'noorgoodbye.png';
+                    link.download = 'pointtable.png';
                     link.href = url;
                     document.body.appendChild(link);
                     link.click();
@@ -818,5 +1373,5 @@
         }
     </script>
 </body>
-    </html>
-                                                                                                                                                                                                                                                                                                                                                                             
+</html>
+                                                                                                                                                                                                                                                                                                                  
